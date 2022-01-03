@@ -177,3 +177,5 @@ function minesweeper() {
     }
 }
 minesweeper();
+// komentaras
+// atnaujintas 2022-01-03
