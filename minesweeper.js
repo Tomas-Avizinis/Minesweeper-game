@@ -25,6 +25,7 @@ function minesweeper() {
 
                 if (!cell.classList.contains('flag')) {
                     openCell(cell);
+<<<<<<< HEAD
 
                     let openCellsCounter = 0;
                     cells.forEach(cell=>{
@@ -39,6 +40,22 @@ function minesweeper() {
                         endMessage(true);
                     }
 
+=======
+
+                    let openCellsCounter = 0;
+                    cells.forEach(cell=>{
+                        openCellsCounter += (cell.classList.contains('open') || cell.classList.contains('bomb'))? 1 : 0;
+                    })
+
+                    if (cell.classList.contains('bomb')) {
+                        endMessage(false);
+                    }
+
+                    if (openCellsCounter == fieldSize * fieldSize) {
+                        endMessage(true);
+                    }
+
+>>>>>>> 1e5c962e4e812c4f15e4cf4b6c868451ce4e5258
                     if (minesNear(cell.no) == 0) {
                         for (let i = 0; i < fieldSize; i++) { // atveriame kaimyninius langelius aplink tuscia langeli
                             cells.forEach((cell)=>{
@@ -130,4 +147,8 @@ minesweeper();
     // get class name trough click event target attributes
     // check if class name value is empty or bomb if bomb
     // remove bomb class for square and add another one which makes square different color
+<<<<<<< HEAD
     // make game over text to appear if user click square with a bomb
+=======
+    // make game over text to appear if user click square with a bomb
+>>>>>>> 1e5c962e4e812c4f15e4cf4b6c868451ce4e5258
