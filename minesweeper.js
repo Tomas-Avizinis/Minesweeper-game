@@ -1,6 +1,24 @@
 function minesweeper() {
+    let startTime = 0;
+    let time = 0;
+    let gameOn = false;
+
+    const timeCounter = () => {
+        if (gameOn) {
+            time = Math.floor((Date.now() - startTime) /100)/10;
+        }
+        timer.textContent = time.toFixed(1);
+    }
+
+    setInterval(timeCounter, 100)
+    console.log('pradejau', startTime);
 
     const container = document.querySelector('.container');
+    const timer = document.createElement('div');
+    timer.className = 'timer';
+    container.append(timer);
+    timer.textContent = 0;
+    
 
     const minefield = document.createElement('div');
     minefield.classList.add('minefield')
@@ -22,6 +40,11 @@ function minesweeper() {
 
             ////EVENT - on normal click
             cell.onclick = () => {
+                if (!gameOn) {
+                    gameOn = true;
+                    startTime = Date.now();
+                }
+                
 
                 if (!cell.classList.contains('flag')) {
                     openCell(cell);
@@ -53,6 +76,8 @@ function minesweeper() {
             }
 
             function endMessage(win) {
+                const EndTime = Math.floor((Date.now() - startTime) /100) /10;
+                gameOn = false;
 
                 const endMessage = document.createElement('h1');
                 minefield.append(endMessage);
@@ -61,7 +86,7 @@ function minesweeper() {
                 endMessage.style.width = endMessage.style.height = minefield.offsetWidth + 'px';
                 
                 endMessage.classList.add(win? 'win' : 'lose')
-                endMessage.textContent = win? 'You Win! You opened all safe cells and avoided bombs!' : 'BOOOOM! Game over!';
+                endMessage.textContent = win? `You Win! You opened all safe cells and avoided bombs in ${EndTime} sek!` : `BOOOOM! Game over in ${EndTime} sek!`;
             }
 
             //EVENT - on right click
@@ -82,11 +107,12 @@ function minesweeper() {
     function openCell(cell) {
         
         cell.classList.add('open');
-        cell.style.backgroundColor = (!cell.classList.contains('bomb'))?  'white': 'red';
+        cell.style.backgroundColor = (!cell.classList.contains('bomb'))? 'white': 'red';
         
         if (cell.classList.contains('bomb')) {
             cells.forEach((cell)=>{
                 cell.style.backgroundColor = (cell.classList.contains('bomb'))? 'red' : 'initial';
+                cell.textContent = cell.classList.contains('bomb')? '💣' : '';
             })
         }
 

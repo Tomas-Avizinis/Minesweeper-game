@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -16,7 +19,7 @@
 .container-sm {
     position: relative;
     display: flex;
-    grow:1;
+    flex-grow: 1;
     flex-wrap: wrap;
     margin: 100px;
     min-width: 120px;
@@ -70,7 +73,23 @@
     text-align: center;
     position: absolute;
     border-radius: 10px;
-    opacity: .8;
+    opacity: .5;
+}
+.timer {
+    width: 580px;
+    background-color:darkslategrey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin: 10px 0 25px 0;
+    font-size: 1.5em;
+    font-weight: 900;
+    font-family: 'Major Mono Display', monospace;    
+    top: 10px;
+    border-radius: 15px;
+    /* opacity: .5; */
+    z-index: 10;
 }
 .win {
     background-color: white;
