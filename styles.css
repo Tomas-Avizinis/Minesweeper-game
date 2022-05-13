@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+.flex {
+    display: flex;
+}
 
 .container {
     display: flex;
@@ -8,10 +11,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
-
 }
 
-/*.container-sm {*/
+.container-sm {
     position: relative;
     display: flex;
     grow:1;
@@ -24,10 +26,78 @@
     /*border: 1px dashed black;*/
 }
 
-button  {
-    /*padding: 10px;*/
-    /*width: 40px;*/
-    /*height: 40px;*/
+.minefield {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 8px double darkred;
+    padding: 1px 3px 3px 1px;
+    border-radius: 10px;
+}
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
+    margin: 3px;
+    border: 1px solid black;
+    background-color: #cccccc;
+    box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+.open {
+    box-shadow:  none;
+    border-style: dotted;
+}
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    border-radius: 10px;
+    opacity: .8;
+}
+.win {
+    background-color: white;
+    color: green;
+}
+.lose {
+    background-color: black;
+    color: white;
+}
+.flag {
+    background-color: yellow;
+    font-size: 20px;
+    padding: auto;
+    cursor: not-allowed;
+}
+
+
+
+
+         
+
+
+
+button {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
 }
 
 .kortele {
